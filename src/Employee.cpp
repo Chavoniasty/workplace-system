@@ -1,6 +1,6 @@
 #include "../lib/Employee.h"
 
-Employee::Employee(std::string name, float salary) : name(name), salary(salary) {}
+Employee::Employee(std::string name, float salary) : name(name), salary(salary), role("Employee") {}
 
 float Employee::getSalary() const {
     return salary;

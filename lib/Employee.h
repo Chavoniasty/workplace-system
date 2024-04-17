@@ -13,11 +13,11 @@ public:
     Employee(std::string name, float salary = 0);
     virtual ~Employee() {}
 
-    virtual float getSalary() const;
-    virtual void setSalary(float tempSalary);
-    void setName(std::string tempName);
-    virtual std::string getName() const;
-    virtual std::string getRole() const;
+    virtual float getSalary() const = 0;
+    virtual void setSalary(float tempSalary) = 0;
+    virtual void setName(std::string tempName) = 0;
+    virtual std::string getName() const = 0;
+    virtual std::string getRole() const = 0;
 };
 
 #endif // EMPLOYEE_H
