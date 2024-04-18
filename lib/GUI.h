@@ -4,10 +4,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
+
 #include "Employee.h"
 
 class GUI {
-public:
+   public:
     std::vector<Employee*> employeeList;
 
     void start();
@@ -20,4 +21,4 @@ public:
     void waitForUser();
 };
 
-#endif // PROGRAM_H
+#endif  // PROGRAM_H

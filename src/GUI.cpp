@@ -1,10 +1,12 @@
 #include "../lib/GUI.h"
-#include "../lib/EmployeeFactory.h"
+
 #include <climits>
 
-void GUI::start(){
+#include "../lib/EmployeeFactory.h"
+
+void GUI::start() {
     bool menuLoop = true;
-    while(menuLoop){
+    while (menuLoop) {
         clearScreen();
         std::cout << "==== MENU ====" << std::endl
                   << "1. Add new employee" << std::endl
@@ -65,11 +67,9 @@ void GUI::addNewEmployee() {
         std::cin >> roleInt;
         if (roleInt == 1) {
             tempRole = "warehouse";
-        }
-        else if (roleInt == 2) {
+        } else if (roleInt == 2) {
             tempRole = "office";
-        }
-        else if (roleInt == 0) {
+        } else if (roleInt == 0) {
             return;
         }
     } while (roleInt > 3 || roleInt < 0);
@@ -91,8 +91,7 @@ void GUI::changeEmployeeInfo() {
         std::cout << "Enter new name:   ";
         std::cin >> tempName;
         employeeList.at(choice)->setName(tempName);
-    }
-    else if (choice2 == 2) {
+    } else if (choice2 == 2) {
         float tempSalary;
         std::cout << "Enter new salary: ";
         std::cin >> tempSalary;
@@ -100,7 +99,7 @@ void GUI::changeEmployeeInfo() {
     }
 }
 
-void GUI::deleteEmployee(){
+void GUI::deleteEmployee() {
     displayAllEmployees();
     int choice;
     std::cin >> choice;
@@ -111,7 +110,7 @@ void GUI::deleteEmployee(){
 void GUI::getAllSalaries() {
     clearScreen();
     float sum = 0;
-    for (auto& elem: employeeList) {
+    for (auto& elem : employeeList) {
         sum += elem->getSalary();
     }
     std::cout << "Salaries combined value:  " << sum << std::endl;
@@ -120,21 +119,21 @@ void GUI::getAllSalaries() {
 void GUI::displayAllEmployees() {
     clearScreen();
     int i = 1;
-    if(employeeList.empty()){
+    if (employeeList.empty()) {
         std::cout << "No employees.";
     }
-    for (auto& elem: employeeList) {
+    for (auto& elem : employeeList) {
         std::cout << i << ". " << elem->getName() << "  " << elem->getSalary() << " " << elem->getRole() << std::endl;
         i++;
     }
 }
 
 void GUI::clearScreen() {
-    #ifdef WINDOWS
-        std::system("cls");
-    #else
-        std::system ("clear");
-    #endif
+#ifdef WINDOWS
+    std::system("cls");
+#else
+    std::system("clear");
+#endif
 }
 
 void GUI::waitForUser() {
